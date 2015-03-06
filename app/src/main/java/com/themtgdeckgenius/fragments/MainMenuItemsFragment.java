@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import com.themtgdeckgenius.pocketbudget.MainMenuActivity;
 import com.themtgdeckgenius.pocketbudget.R;
-import com.themtgdeckgenius.widgets.MainMenuLinearLayout;
 
 public class MainMenuItemsFragment extends Fragment {
 	
@@ -34,13 +33,12 @@ public class MainMenuItemsFragment extends Fragment {
 				inflater.inflate(R.layout.fragment_main_menu, container, false);
 		
 		int pos = this.getArguments().getInt("pos");
-		TextView tv = (TextView) l.findViewById(R.id.text);
+		TextView tv = (TextView) l.findViewById(R.id.title_text);
 		tv.setText("Position = " + pos);
 		
-		MainMenuLinearLayout root = (MainMenuLinearLayout) l.findViewById(R.id.root);
+		LinearLayout root = (LinearLayout) l.findViewById(R.id.root);
 		float scale = this.getArguments().getFloat("scale");
-		root.setScaleBoth(scale);
-		
+
 		return l;
 	}
 }
