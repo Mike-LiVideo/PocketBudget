@@ -7,22 +7,22 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DatabaseAccesor extends SQLiteOpenHelper {
 
-	public DatabaseAccesor(Context context, String name, CursorFactory factory,
-			int version) {
-		super(context, name, factory, version);
-		// TODO Auto-generated constructor stub
-	}
+    public DatabaseAccesor(Context context, String name, CursorFactory factory,
+                           int version) {
+        super(context, name, factory, version);
+        // TODO Auto-generated constructor stub
+    }
 
-	@Override
-	public void onCreate(SQLiteDatabase db) {
-		// TODO Auto-generated method stub
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+        // TODO Auto-generated method stub
 
-	}
+    }
 
-	@Override
-	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-		// TODO Auto-generated method stub
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        // TODO Auto-generated method stub
 
-	}
+    }
 
 }

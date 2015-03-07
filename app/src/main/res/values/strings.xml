@@ -3,4 +3,17 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="test_title">Test Title</string>
+    <string name="title_income_fragment">Add Income</string>
+    <string name="title_bill_fragment">Add Bill</string>
+    <string name="title_expense_fragment">Add Expense</string>
+    <string name="title_view_budget">View Your Budget</string>
+    <string name="hint_money">$000.00</string>
+    <string name="hint_name_bill">i.e. Rent</string>
+    <string name="hint_name_expense">i.e. Gas</string>
+    <string name="hint_income">i.e. Salery</string>
+    <string name="hint_test">i.e. This is a Test</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="button_save">Save</string>
+    <string name="alert_quit">Are you shure you want to stop this imput?</string>
+    <string name="title_remove_from_budget">Remove Item From Budget</string>
 </resources>
