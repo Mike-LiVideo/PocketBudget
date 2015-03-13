@@ -1,6 +1,7 @@
 package com.themtgdeckgenius.datacontrol.database;
 
-public class BillsTable extends SQLiteTable {
+public class BillsTable
+        extends SQLiteTable{
 
     // Table Name
     public static final String BILLS_TABLE_NAME = "bills";
@@ -15,7 +16,7 @@ public class BillsTable extends SQLiteTable {
             + ".due_date";
 
     @Override
-    protected void initializeProjectionMap() {
+    protected void initializeProjectionMap(){
         insertIdColumnIntoProjectionMap(ITEM_ID_COLUMN);
         insertColumnIntoProjectionMap(BILLS_SOURCE_COLUMN);
         insertColumnIntoProjectionMap(BILLS_AMOUNT_COLLUMN);

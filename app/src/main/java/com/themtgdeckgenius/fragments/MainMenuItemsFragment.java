@@ -12,9 +12,10 @@ import android.widget.TextView;
 import com.themtgdeckgenius.pocketbudget.MainMenuActivity;
 import com.themtgdeckgenius.pocketbudget.R;
 
-public class MainMenuItemsFragment extends Fragment {
+public class MainMenuItemsFragment
+        extends Fragment{
 
-    public static Fragment newInstance(MainMenuActivity context, String act, MainMenuActivity.MAIN_MENU_FRAGMENTS fragmentEnum) {
+    public static Fragment newInstance(MainMenuActivity context, String act, MainMenuActivity.MAIN_MENU_FRAGMENTS fragmentEnum){
         Bundle b = new Bundle();
         b.putString("action", act);
         b.putSerializable("fragment", fragmentEnum);
@@ -23,8 +24,8 @@ public class MainMenuItemsFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        if (container == null) {
+                             Bundle savedInstanceState){
+        if(container == null){
             return null;
         }
 

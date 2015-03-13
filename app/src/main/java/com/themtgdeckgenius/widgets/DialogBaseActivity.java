@@ -2,10 +2,8 @@ package com.themtgdeckgenius.widgets;
 
 
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,31 +14,28 @@ import com.themtgdeckgenius.pocketbudget.R;
 /**
  * Created by michael.wheeler on 3/6/2015.
  */
-public abstract class DialogBaseActivity extends AlertDialog implements View.OnClickListener {
+public abstract class DialogBaseActivity
+        extends AlertDialog
+        implements View.OnClickListener{
     protected DIALOG_TYPE mDialogType;
 
     protected Context c;
     protected Button mCancel, mSave;
     protected EditText mItemName, mItemAmount;
 
-    protected abstract DIALOG_TYPE getDialogType();
-    protected abstract int getTitleID();
-    protected abstract int getHintID();
-
-    public static enum DIALOG_TYPE{
-
-        ADD_INCOME,
-        ADD_BILL,
-        ADD_EXPENSE
-    }
-
     public DialogBaseActivity(Context context){
         super(context, true, null);
         c = context;
     }
 
+    protected abstract DIALOG_TYPE getDialogType();
+
+    protected abstract int getTitleID();
+
+    protected abstract int getHintID();
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         mDialogType = getDialogType();
         setContentView(R.layout.dialog_main);
@@ -57,10 +52,10 @@ public abstract class DialogBaseActivity extends AlertDialog implements View.OnC
     }
 
     @Override
-    public void onClick(View v) {
+    public void onClick(View v){
         final int id = v.getId();
 
-        switch (id){
+        switch(id){
             case R.id.dialog_cancel_button:
                 onBackPressed();
                 break;
@@ -73,7 +68,7 @@ public abstract class DialogBaseActivity extends AlertDialog implements View.OnC
     }
 
     @Override
-    public void onBackPressed() {
+    public void onBackPressed(){
         StringBuilder sb = new StringBuilder();
         sb.append(c.getResources().getString(R.string.alert_quit));
         final AlertDialog d = new Builder(c).create();
@@ -81,20 +76,28 @@ public abstract class DialogBaseActivity extends AlertDialog implements View.OnC
         d.setMessage(sb.toString());
         d.setButton(AlertDialog.BUTTON_POSITIVE, "Yes", new OnClickListener(){
             @Override
-            public void onClick(DialogInterface dialog, int which) {
+            public void onClick(DialogInterface dialog, int which){
                 d.dismiss();
                 confirmBack();
             }
         });
-        d.setButton(AlertDialog.BUTTON_NEGATIVE, "No", new OnClickListener() {
+        d.setButton(AlertDialog.BUTTON_NEGATIVE, "No", new OnClickListener(){
             @Override
-            public void onClick(DialogInterface dialog, int which) {
+            public void onClick(DialogInterface dialog, int which){
                 d.dismiss();
             }
         });
-       d.show();
+        d.show();
     }
+
     public void confirmBack(){
         super.onBackPressed();
+    }
+
+    public static enum DIALOG_TYPE{
+
+        ADD_INCOME,
+        ADD_BILL,
+        ADD_EXPENSE
     }
 }

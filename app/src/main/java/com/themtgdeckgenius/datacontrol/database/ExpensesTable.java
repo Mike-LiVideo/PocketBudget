@@ -1,6 +1,7 @@
 package com.themtgdeckgenius.datacontrol.database;
 
-public class ExpensesTable extends SQLiteTable {
+public class ExpensesTable
+        extends SQLiteTable{
 
     // Table Name
     public static final String EXPENSE_TABLE_NAME = "expenses";
@@ -13,7 +14,7 @@ public class ExpensesTable extends SQLiteTable {
             + ".amount";
 
     @Override
-    protected void initializeProjectionMap() {
+    protected void initializeProjectionMap(){
         insertIdColumnIntoProjectionMap(ITEM_ID_COLUMN);
         insertColumnIntoProjectionMap(EXPENSE_SOURCE_COLUMN);
         insertColumnIntoProjectionMap(EXPENSE_AMOUNT_COLLUMN);
