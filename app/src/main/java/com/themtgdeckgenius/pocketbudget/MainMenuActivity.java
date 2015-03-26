@@ -89,6 +89,8 @@ public class MainMenuActivity
                     return ADD_EXPENSE;
                 case 3:
                     return VIEW_BUDGET;
+                case 4:
+                    return REMOVE_FROM_BUDGET;
                 default:
                     Log.e(LOGTAG, "Invalid Position");
                     return null;
