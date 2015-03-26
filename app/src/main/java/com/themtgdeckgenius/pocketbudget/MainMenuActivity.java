@@ -62,10 +62,10 @@ public class MainMenuActivity
 
     public enum MAIN_MENU_FRAGMENTS{
 
-        ADD_INCOME(R.string.title_income_fragment, 0, R.drawable.plus_symbol),
-        ADD_BILL(R.string.title_bill_fragment, 1, R.drawable.minus_symbol),
-        ADD_EXPENSE(R.string.title_expense_fragment, 2, R.drawable.minus_symbol),
-        VIEW_BUDGET(R.string.title_view_budget, 3, R.drawable.view_symbol),
+        VIEW_BUDGET(R.string.title_view_budget, 0, R.drawable.view_symbol),
+        ADD_INCOME(R.string.title_income_fragment, 1, R.drawable.plus_symbol),
+        ADD_BILL(R.string.title_bill_fragment, 2, R.drawable.minus_symbol),
+        ADD_EXPENSE(R.string.title_expense_fragment, 3, R.drawable.minus_symbol),
         REMOVE_FROM_BUDGET(R.string.title_remove_from_budget, 4, R.drawable.remove_symbol);
 
         private final int mTitleString;
@@ -82,13 +82,13 @@ public class MainMenuActivity
 
             switch(pos){
                 case 0:
-                    return ADD_INCOME;
-                case 1:
-                    return ADD_BILL;
-                case 2:
-                    return ADD_EXPENSE;
-                case 3:
                     return VIEW_BUDGET;
+                case 1:
+                    return ADD_INCOME;
+                case 2:
+                    return ADD_BILL;
+                case 3:
+                    return ADD_EXPENSE;
                 case 4:
                     return REMOVE_FROM_BUDGET;
                 default:
