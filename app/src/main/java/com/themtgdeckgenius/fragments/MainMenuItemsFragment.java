@@ -82,7 +82,10 @@ public class MainMenuItemsFragment
                     };
                     mDialogPopup.show();
                 }
-                Toast.makeText(getActivity(), "Not Implemented Yet", Toast.LENGTH_SHORT).show();
+                else {
+                    Toast.makeText(getActivity(), "Not Implemented Yet", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
         return mLinearLayout;

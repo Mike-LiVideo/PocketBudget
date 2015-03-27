@@ -25,6 +25,7 @@ public abstract class DialogBaseActivity
     protected Button gCancelButton, gSaveButton;
     protected EditText gItemName, gItemAmount;
     protected TextView gDialogTitle;
+    protected View gDialogRoot;
 
     public DialogBaseActivity(Context context){
         super(context, true, null);
@@ -43,6 +44,8 @@ public abstract class DialogBaseActivity
         gDialogType = getDialogType();
         setContentView(R.layout.dialog_main);
 
+        gDialogRoot = findViewById(R.id.dialog_root);
+        gDialogRoot.setOnClickListener(this);
         gDialogTitle = (TextView) findViewById(R.id.dialog_title);
         gDialogTitle.setText(getTitleID());
         gCancelButton = (Button) findViewById(R.id.dialog_cancel_button);
@@ -66,6 +69,9 @@ public abstract class DialogBaseActivity
             case R.id.dialog_save_button:
                 //Save to database
                 Toast.makeText(gContext,"Not Implemented Yet", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.dialog_root:
+                onBackPressed();
                 break;
             default:
                 break;
