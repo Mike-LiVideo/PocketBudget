@@ -15,5 +15,5 @@
     <string name="button_cancel">Cancel</string>
     <string name="button_save">Save</string>
     <string name="alert_quit">Are you shure you want to stop this imput?</string>
-    <string name="title_remove_from_budget">Remove Item From Budget</string>
+    <string name="title_remove_from_budget">Remove Item </string>
 </resources>
