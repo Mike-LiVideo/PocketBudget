@@ -16,10 +16,10 @@ public class MainMenuItemsFragment
         extends Fragment{
 
     public static Fragment newInstance(MainMenuActivity context, String act, MainMenuActivity.MAIN_MENU_FRAGMENTS fragmentEnum){
-        Bundle b = new Bundle();
-        b.putString("action", act);
-        b.putSerializable("fragment", fragmentEnum);
-        return Fragment.instantiate(context, MainMenuItemsFragment.class.getName(), b);
+        Bundle mBundle = new Bundle();
+        mBundle.putString("action", act);
+        mBundle.putSerializable("fragment", fragmentEnum);
+        return Fragment.instantiate(context, MainMenuItemsFragment.class.getName(), mBundle);
     }
 
     @Override
@@ -29,18 +29,20 @@ public class MainMenuItemsFragment
             return null;
         }
 
-        LinearLayout l = (LinearLayout)
+        LinearLayout mLinearLayout = (LinearLayout)
                 inflater.inflate(R.layout.fragment_main_menu, container, false);
 
         String act = this.getArguments().getString("action");
         MainMenuActivity.MAIN_MENU_FRAGMENTS fragmentEnum = (MainMenuActivity.MAIN_MENU_FRAGMENTS) this.getArguments().getSerializable("fragment");
-        TextView tv = (TextView) l.findViewById(R.id.title_text);
+        TextView tv = (TextView) mLinearLayout.findViewById(R.id.title_text);
         tv.setText(act);
 
-        ImageButton ib = (ImageButton) l.findViewById(R.id.content);
+        ImageButton mImageButton = (ImageButton) mLinearLayout.findViewById(R.id.content);
         int imageRes = fragmentEnum.getImageId();
-        ib.setImageResource(imageRes);
+        mImageButton.setImageResource(imageRes);
 
-        return l;
+
+
+        return mLinearLayout;
     }
 }

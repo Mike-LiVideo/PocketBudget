@@ -17,11 +17,9 @@ public class MainMenuActivity
     public final static int PAGES = 5;
     public final static int LOOPS = 1000;
     public final static int FIRST_PAGE = PAGES * LOOPS / 2;
-    public final static float BIG_SCALE = 1.0f;
-    public final static float SMALL_SCALE = 0.7f;
     protected static final String LOGTAG = MainMenuActivity.class.getSimpleName();
-    public MainMenuPagerAdapter adapter;
-    public ViewPager pager;
+    public MainMenuPagerAdapter gMainMenuPagerAdapter;
+    public ViewPager gViewPager;
 
     public static int getRealPosition(int pos){
         return pos % PAGES;
@@ -32,13 +30,13 @@ public class MainMenuActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
 
-        pager = (ViewPager) findViewById(R.id.myviewpager);
+        gViewPager = (ViewPager) findViewById(R.id.myviewpager);
 
-        adapter = new MainMenuPagerAdapter(this, this.getSupportFragmentManager());
-        pager.setAdapter(adapter);
-        pager.setOnPageChangeListener(adapter);
+        gMainMenuPagerAdapter = new MainMenuPagerAdapter(this, this.getSupportFragmentManager());
+        gViewPager.setAdapter(gMainMenuPagerAdapter);
+        gViewPager.setOnPageChangeListener(gMainMenuPagerAdapter);
 
-        pager.setCurrentItem(FIRST_PAGE);
+        gViewPager.setCurrentItem(FIRST_PAGE);
     }
 
     @Override

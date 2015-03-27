@@ -20,6 +20,7 @@ public class BillsTable
         insertIdColumnIntoProjectionMap(ITEM_ID_COLUMN);
         insertColumnIntoProjectionMap(BILLS_SOURCE_COLUMN);
         insertColumnIntoProjectionMap(BILLS_AMOUNT_COLLUMN);
+        insertColumnIntoProjectionMap(BILLS_DUE_DATE_COLLUMN);
 
     }
 

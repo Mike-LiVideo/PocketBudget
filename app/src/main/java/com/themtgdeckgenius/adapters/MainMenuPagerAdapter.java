@@ -13,22 +13,22 @@ public class MainMenuPagerAdapter
         implements
         ViewPager.OnPageChangeListener{
 
-    private MainMenuActivity context;
-    private FragmentManager fm;
+    private MainMenuActivity gMainMenuActivityContext;
+    private FragmentManager gFragmentManager;
 
     public MainMenuPagerAdapter(MainMenuActivity context, FragmentManager fm){
         super(fm);
-        this.fm = fm;
-        this.context = context;
+        this.gFragmentManager = fm;
+        this.gMainMenuActivityContext = context;
     }
 
     @Override
     public Fragment getItem(int position){
         position = MainMenuActivity.getRealPosition(position);
         MainMenuActivity.MAIN_MENU_FRAGMENTS frag = MainMenuActivity.MAIN_MENU_FRAGMENTS.getFragmentFromPosition(position);
-        String action = context.getString(frag.getTitleId());
+        String action = gMainMenuActivityContext.getString(frag.getTitleId());
 
-        return MainMenuItemsFragment.newInstance(context, action, frag);
+        return MainMenuItemsFragment.newInstance(gMainMenuActivityContext, action, frag);
     }
 
     @Override

@@ -17,7 +17,7 @@ import com.themtgdeckgenius.pocketbudget.R;
 public abstract class DialogBaseActivity
         extends AlertDialog
         implements View.OnClickListener{
-    protected DIALOG_TYPE mDialogType;
+    protected DIALOG_TYPE gDialogType;
 
     protected Context c;
     protected Button mCancel, mSave;
@@ -37,7 +37,7 @@ public abstract class DialogBaseActivity
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        mDialogType = getDialogType();
+        gDialogType = getDialogType();
         setContentView(R.layout.dialog_main);
 
         setTitle(getTitleID());
