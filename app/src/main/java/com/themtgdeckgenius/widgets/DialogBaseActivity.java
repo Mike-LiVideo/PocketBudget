@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.themtgdeckgenius.pocketbudget.R;
 
@@ -19,13 +21,14 @@ public abstract class DialogBaseActivity
         implements View.OnClickListener{
     protected DIALOG_TYPE gDialogType;
 
-    protected Context c;
-    protected Button mCancel, mSave;
-    protected EditText mItemName, mItemAmount;
+    protected Context gContext;
+    protected Button gCancelButton, gSaveButton;
+    protected EditText gItemName, gItemAmount;
+    protected TextView gDialogTitle;
 
     public DialogBaseActivity(Context context){
         super(context, true, null);
-        c = context;
+        gContext = context;
     }
 
     protected abstract DIALOG_TYPE getDialogType();
@@ -40,14 +43,15 @@ public abstract class DialogBaseActivity
         gDialogType = getDialogType();
         setContentView(R.layout.dialog_main);
 
-        setTitle(getTitleID());
-        mCancel = (Button) findViewById(R.id.dialog_cancel_button);
-        mSave = (Button) findViewById(R.id.dialog_save_button);
-        mCancel.setOnClickListener(this);
-        mSave.setOnClickListener(this);
-        mItemName = (EditText) findViewById(R.id.dialog_item_name);
-        mItemName.setHint(getHintID());
-        mItemAmount = (EditText) findViewById(R.id.dialog_item_amount);
+        gDialogTitle = (TextView) findViewById(R.id.dialog_title);
+        gDialogTitle.setText(getTitleID());
+        gCancelButton = (Button) findViewById(R.id.dialog_cancel_button);
+        gSaveButton = (Button) findViewById(R.id.dialog_save_button);
+        gCancelButton.setOnClickListener(this);
+        gSaveButton.setOnClickListener(this);
+        gItemName = (EditText) findViewById(R.id.dialog_item_name);
+        gItemName.setHint(getHintID());
+        gItemAmount = (EditText) findViewById(R.id.dialog_item_amount);
 
     }
 
@@ -61,6 +65,7 @@ public abstract class DialogBaseActivity
                 break;
             case R.id.dialog_save_button:
                 //Save to database
+                Toast.makeText(gContext,"Not Implemented Yet", Toast.LENGTH_SHORT).show();
                 break;
             default:
                 break;
@@ -69,25 +74,25 @@ public abstract class DialogBaseActivity
 
     @Override
     public void onBackPressed(){
-        StringBuilder sb = new StringBuilder();
-        sb.append(c.getResources().getString(R.string.alert_quit));
-        final AlertDialog d = new Builder(c).create();
-        d.setTitle("??????????");
-        d.setMessage(sb.toString());
-        d.setButton(AlertDialog.BUTTON_POSITIVE, "Yes", new OnClickListener(){
+        StringBuilder mStringBuilder = new StringBuilder();
+        mStringBuilder.append(gContext.getResources().getString(R.string.alert_quit));
+        final AlertDialog mAlertDialog = new Builder(gContext).create();
+        mAlertDialog.setTitle("??????????");
+        mAlertDialog.setMessage(mStringBuilder.toString());
+        mAlertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Yes", new OnClickListener(){
             @Override
             public void onClick(DialogInterface dialog, int which){
-                d.dismiss();
+                mAlertDialog.dismiss();
                 confirmBack();
             }
         });
-        d.setButton(AlertDialog.BUTTON_NEGATIVE, "No", new OnClickListener(){
+        mAlertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "No", new OnClickListener(){
             @Override
             public void onClick(DialogInterface dialog, int which){
-                d.dismiss();
+                mAlertDialog.dismiss();
             }
         });
-        d.show();
+        mAlertDialog.show();
     }
 
     public void confirmBack(){

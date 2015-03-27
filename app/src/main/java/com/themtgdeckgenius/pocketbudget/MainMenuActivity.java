@@ -47,8 +47,8 @@ public class MainMenuActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
-        int id = item.getItemId();
-        if(id == R.id.action_settings){
+        int mId = item.getItemId();
+        if(mId == R.id.action_settings){
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -60,20 +60,22 @@ public class MainMenuActivity
 
     public enum MAIN_MENU_FRAGMENTS{
 
-        VIEW_BUDGET(R.string.title_view_budget, 0, R.drawable.view_symbol),
-        ADD_INCOME(R.string.title_income_fragment, 1, R.drawable.plus_symbol),
-        ADD_BILL(R.string.title_bill_fragment, 2, R.drawable.minus_symbol),
-        ADD_EXPENSE(R.string.title_expense_fragment, 3, R.drawable.minus_symbol),
-        REMOVE_FROM_BUDGET(R.string.title_remove_from_budget, 4, R.drawable.remove_symbol);
+        VIEW_BUDGET(R.string.title_view_budget, 0, R.drawable.view_symbol, false),
+        ADD_INCOME(R.string.title_income_fragment, 1, R.drawable.plus_symbol, true),
+        ADD_BILL(R.string.title_bill_fragment, 2, R.drawable.minus_symbol, true),
+        ADD_EXPENSE(R.string.title_expense_fragment, 3, R.drawable.minus_symbol, true),
+        REMOVE_FROM_BUDGET(R.string.title_remove_from_budget, 4, R.drawable.remove_symbol, false);
 
         private final int mTitleString;
         private final int mPosition;
         private final int mImageId;
+        private final boolean mHasPopupl;
 
-        MAIN_MENU_FRAGMENTS(final int fragmentTitle, final int position, int imageId){
+        MAIN_MENU_FRAGMENTS(final int fragmentTitle, final int position, int imageId, final boolean hasPopup){
             mTitleString = fragmentTitle;
             mPosition = position;
             mImageId = imageId;
+            mHasPopupl = hasPopup;
         }
 
         public static MAIN_MENU_FRAGMENTS getFragmentFromPosition(int pos){
@@ -108,5 +110,7 @@ public class MainMenuActivity
         public int getImageId(){
             return mImageId;
         }
+
+        public boolean getHasPopup() { return mHasPopupl; }
     }
 }

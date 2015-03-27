@@ -1,52 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:background="@drawable/dialogbackground"
-              android:gravity="center"
-              android:orientation="vertical"
-              android:padding="30dp"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
     >
-
-    <EditText
-        android:id="@+id/dialog_item_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/white"
-        android:hint="@string/hint_test"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="16dp"/>
-
-
-    <EditText
-        android:id="@+id/dialog_item_amount"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/white"
-        android:hint="@string/hint_money"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <Button
-            android:id="@+id/dialog_cancel_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/button_cancel"/>
+        android:layout_height="wrap_content"
+        android:background="@drawable/dialogbackground"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        >
 
         <TextView
-            android:layout_width="30sp"
-            android:layout_height="wrap_content"/>
-
-
-        <Button
-            android:id="@+id/dialog_save_button"
-            android:layout_width="wrap_content"
+            android:id="@+id/dialog_title"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/button_save"/>
-    </LinearLayout>
+            android:text="@string/test_title"
+            android:textColor="@android:color/background_dark"
+            android:textSize="26sp"/>
 
-</LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="10dp"/>
+
+        <EditText
+            android:id="@+id/dialog_item_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:hint="@string/hint_test"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="16dp"/>
+
+
+        <EditText
+            android:id="@+id/dialog_item_amount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:hint="@string/hint_money"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/dialog_cancel_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/button_cancel"/>
+
+            <TextView
+                android:layout_width="30sp"
+                android:layout_height="wrap_content"/>
+
+
+            <Button
+                android:id="@+id/dialog_save_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/button_save"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>

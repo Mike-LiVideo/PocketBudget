@@ -10,7 +10,7 @@
     <string name="hint_money">$000.00</string>
     <string name="hint_name_bill">i.e. Rent</string>
     <string name="hint_name_expense">i.e. Gas</string>
-    <string name="hint_income">i.e. Salery</string>
+    <string name="hint_income">i.e. Salary</string>
     <string name="hint_test">i.e. This is a Test</string>
     <string name="button_cancel">Cancel</string>
     <string name="button_save">Save</string>
