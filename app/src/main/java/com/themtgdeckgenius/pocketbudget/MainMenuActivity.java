@@ -31,11 +31,9 @@ public class MainMenuActivity
         setContentView(R.layout.activity_main_menu);
 
         gViewPager = (ViewPager) findViewById(R.id.myviewpager);
-
         gMainMenuPagerAdapter = new MainMenuPagerAdapter(this, this.getSupportFragmentManager());
         gViewPager.setAdapter(gMainMenuPagerAdapter);
         gViewPager.setOnPageChangeListener(gMainMenuPagerAdapter);
-
         gViewPager.setCurrentItem(FIRST_PAGE);
     }
 

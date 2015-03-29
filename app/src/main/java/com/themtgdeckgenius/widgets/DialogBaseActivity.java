@@ -54,7 +54,9 @@ public abstract class DialogBaseActivity
         gSaveButton.setOnClickListener(this);
         gItemName = (EditText) findViewById(R.id.dialog_item_name);
         gItemName.setHint(getHintID());
+        gItemName.setShowSoftInputOnFocus(true);
         gItemAmount = (EditText) findViewById(R.id.dialog_item_amount);
+        gItemAmount.setShowSoftInputOnFocus(true);
 
     }
 
