@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -81,6 +82,7 @@ public class MainMenuItemsFragment
                         }
                     };
                     mDialogPopup.show();
+                    mDialogPopup.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE|WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM);
                 }
                 else {
                     Toast.makeText(getActivity(), "Not Implemented Yet", Toast.LENGTH_SHORT).show();

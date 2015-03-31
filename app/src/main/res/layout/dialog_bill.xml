@@ -42,14 +42,30 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@android:color/background_dark"
-            android:text="@string/amount_string"/>
+            android:text="@string/source_string"/>
+
 
         <EditText
             android:id="@+id/dialog_item_amount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
             android:background="@android:color/white"
             android:hint="@string/hint_money"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/background_dark"
+            android:text="@string/date_string"/>
+
+        <EditText
+            android:id="@+id/dialog_item_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="date"
+            android:background="@android:color/white"
+            android:hint="@string/hint_date"/>
 
         <LinearLayout
             android:layout_width="wrap_content"

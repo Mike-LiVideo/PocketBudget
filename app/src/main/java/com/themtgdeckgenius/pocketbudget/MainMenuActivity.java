@@ -2,6 +2,7 @@ package com.themtgdeckgenius.pocketbudget;
 
 
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
@@ -10,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.themtgdeckgenius.adapters.MainMenuPagerAdapter;
+import com.themtgdeckgenius.datacontrol.DatabaseAccessor;
 
 public class MainMenuActivity
         extends FragmentActivity{

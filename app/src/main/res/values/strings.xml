@@ -12,8 +12,12 @@
     <string name="hint_name_expense">i.e. Gas</string>
     <string name="hint_income">i.e. Salary</string>
     <string name="hint_test">i.e. This is a Test</string>
+    <string name="hint_date">00/00/0000</string>
     <string name="button_cancel">Cancel</string>
     <string name="button_save">Save</string>
-    <string name="alert_quit">Are you shure you want to stop this imput?</string>
+    <string name="alert_quit">Are you sure you want to stop this impute?</string>
     <string name="title_remove_from_budget">Remove Item </string>
+    <string name="source_string">Source:</string>
+    <string name="amount_string">Amount:</string>
+    <string name="date_string">Date:</string>
 </resources>
