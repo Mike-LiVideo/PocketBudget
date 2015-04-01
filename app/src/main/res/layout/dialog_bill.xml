@@ -67,9 +67,33 @@
             android:background="@android:color/white"
             android:hint="@string/hint_date"/>
 
+        <Space
+            android:layout_width="15dp"
+            android:layout_height="10dp"/>
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_multiple_string"
+                    android:textColor="@android:color/background_dark"/>
+                <CheckBox
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/dialog_add_multiple_check_box"/>
+            </LinearLayout>
+
+            <Space
+                android:layout_width="15dp"
+                android:layout_height="15dp"/>
 
             <Button
                 android:id="@+id/dialog_cancel_button"
@@ -77,9 +101,9 @@
                 android:layout_height="wrap_content"
                 android:text="@string/button_cancel"/>
 
-            <TextView
-                android:layout_width="30sp"
-                android:layout_height="wrap_content"/>
+            <Space
+                android:layout_width="15dp"
+                android:layout_height="15dp"/>
 
 
             <Button

@@ -9,12 +9,13 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.themtgdeckgenius.datacontrol.DatabaseAccessor;
-import com.themtgdeckgenius.datacontrol.PocketBuggetContract;
+import com.themtgdeckgenius.datacontrol.PocketBudgetContract;
 import com.themtgdeckgenius.pocketbudget.R;
 
 /**
@@ -29,6 +30,7 @@ public abstract class DialogBaseActivity
     protected Button gCancelButton, gSaveButton;
     protected EditText gItemName, gItemAmount, gItemDate;
     protected TextView gDialogTitle;
+    protected CheckBox gAddMultiple;
     private SQLiteDatabase gBudgetDatabase;
 
     public DialogBaseActivity(Context context){
@@ -67,48 +69,55 @@ public abstract class DialogBaseActivity
         gItemName.setHint(getHintID());
         gItemName.setOnClickListener(this);
         gItemAmount = (EditText) findViewById(R.id.dialog_item_amount);
-
+        gAddMultiple = (CheckBox) findViewById(R.id.dialog_add_multiple_check_box);
     }
 
     @Override
     public void onClick(View v){
         final int id = v.getId();
         ContentValues mValues = new ContentValues();
-        long rowId = -1;
         switch(id){
             case R.id.dialog_cancel_button:
                 onBackPressed();
                 break;
             case R.id.dialog_save_button:
-                switch(getDialogType()){
-                    case ADD_INCOME:
-                        mValues.put(PocketBuggetContract.IncomeTable.COLUMN_NAME_SOURCE, gItemName.getText().toString());
-                        mValues.put(PocketBuggetContract.IncomeTable.COLUMN_NAME_AMOUNT, gItemAmount.getText().toString());
-                        rowId = gBudgetDatabase.insert(PocketBuggetContract.IncomeTable.TABLE_NAME, null, mValues);
-                        break;
-                    case ADD_BILL:
-                        mValues.put(PocketBuggetContract.BillsTable.COLUMN_NAME_SOURCE, gItemName.getText().toString());
-                        mValues.put(PocketBuggetContract.BillsTable.COLUMN_NAME_AMOUNT, gItemAmount.getText().toString());
-                        mValues.put(PocketBuggetContract.BillsTable.COLUMN_NAME_DUE_DATE, gItemDate.getText().toString());
-                        rowId = gBudgetDatabase.insert(PocketBuggetContract.BillsTable.TABLE_NAME, PocketBuggetContract.BillsTable.COLUMN_NAME_DUE_DATE, mValues);
-                        break;
-                    case ADD_EXPENSE:
-                        mValues.put(PocketBuggetContract.ExpenseTable.COLUMN_NAME_SOURCE, gItemName.getText().toString());
-                        mValues.put(PocketBuggetContract.ExpenseTable.COLUMN_NAME_AMOUNT, gItemAmount.getText().toString());
-                        rowId = gBudgetDatabase.insert(PocketBuggetContract.ExpenseTable.TABLE_NAME, null, mValues);
-                        break;
-                    default:
-                        break;
+                if(gItemName.getText().toString().isEmpty() ||  gItemAmount.getText().toString().isEmpty()){
+                    Toast.makeText(getContext(), "Save Failed, Please make sure both Source and Amount have values", Toast.LENGTH_LONG).show();
+                }else {
+                    switch(getDialogType()){
+                        case ADD_INCOME:
+                            mValues.put(PocketBudgetContract.IncomeTable.COLUMN_NAME_SOURCE, gItemName.getText().toString());
+                            mValues.put(PocketBudgetContract.IncomeTable.COLUMN_NAME_AMOUNT, gItemAmount.getText().toString());
+                            gBudgetDatabase.insert(PocketBudgetContract.IncomeTable.TABLE_NAME, null, mValues);
+                            break;
+                        case ADD_BILL:
+                            mValues.put(PocketBudgetContract.BillsTable.COLUMN_NAME_SOURCE, gItemName.getText().toString());
+                            mValues.put(PocketBudgetContract.BillsTable.COLUMN_NAME_AMOUNT, gItemAmount.getText().toString());
+                            mValues.put(PocketBudgetContract.BillsTable.COLUMN_NAME_DUE_DATE, gItemDate.getText().toString());
+                            gBudgetDatabase.insert(PocketBudgetContract.BillsTable.TABLE_NAME, null, mValues);
+                            break;
+                        case ADD_EXPENSE:
+                            mValues.put(PocketBudgetContract.ExpenseTable.COLUMN_NAME_SOURCE, gItemName.getText().toString());
+                            mValues.put(PocketBudgetContract.ExpenseTable.COLUMN_NAME_AMOUNT, gItemAmount.getText().toString());
+                            gBudgetDatabase.insert(PocketBudgetContract.ExpenseTable.TABLE_NAME, null, mValues);
+                            break;
+                        default:
+                            break;
+                    }
+                    Toast.makeText(getContext(), "Item Successfully Saved", Toast.LENGTH_SHORT).show();
+                    gItemName.setText("");
+                    gItemAmount.setText("");
+                    if(getDialogType() == DIALOG_TYPE.ADD_BILL){
+                        gItemDate.setText("");
+                    }
+                    if (!gAddMultiple.isChecked()){
+                        this.dismiss();
+                    }
+
                 }
                 break;
             default:
                 break;
-        }
-        if (rowId == -1){
-            Toast.makeText(getContext(), "Save Failed, Please make sure both Source and Amount have values", Toast.LENGTH_LONG).show();
-        }
-        else {
-            Toast.makeText(getContext(), "Item Successfully Saved", Toast.LENGTH_SHORT).show();
         }
     }
 

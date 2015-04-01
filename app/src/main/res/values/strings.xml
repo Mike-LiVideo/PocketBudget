@@ -20,4 +20,5 @@
     <string name="source_string">Source:</string>
     <string name="amount_string">Amount:</string>
     <string name="date_string">Date:</string>
+    <string name="add_multiple_string">Add Multiple?</string>
 </resources>
