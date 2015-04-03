@@ -14,25 +14,28 @@ public class DatabaseAccessor
     /**
      * The following are the create statements for each table
      */
-    private static final String TEXT = " TEXT NOT NULL";
+    private static final String TEXT_NN = " TEXT NOT NULL";
+    private static final String TEXT = " TEXT";
     private static final String INTEGER = " INTEGER NOT NULL";
-    private static final String DATE = " DATE";
     private static final String PRIMARY_KEY = " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE";
     private static final String COMMA = ",";
     private static final String TABLE = "CREATE TABLE ";
-    private static final String SQL_CREATE_BILLS = TABLE + PocketBudgetContract.BillsTable.TABLE_NAME + " ("
+    private static final String START_TABLE = " (";
+    private static final String END_TABLE = " );";
+
+    private static final String SQL_CREATE_BILLS = TABLE + PocketBudgetContract.BillsTable.TABLE_NAME + START_TABLE
             + PocketBudgetContract.BillsTable._ID + PRIMARY_KEY
-            + COMMA + PocketBudgetContract.BillsTable.COLUMN_NAME_SOURCE + TEXT
+            + COMMA + PocketBudgetContract.BillsTable.COLUMN_NAME_SOURCE + TEXT_NN
             + COMMA + PocketBudgetContract.BillsTable.COLUMN_NAME_AMOUNT + INTEGER
-            + COMMA + PocketBudgetContract.BillsTable.COLUMN_NAME_DUE_DATE + DATE + " );";
-    private static final String SQL_CREATE_INCOME = TABLE + PocketBudgetContract.IncomeTable.TABLE_NAME + " ("
+            + COMMA + PocketBudgetContract.BillsTable.COLUMN_NAME_DUE_DATE + TEXT + END_TABLE;
+    private static final String SQL_CREATE_INCOME = TABLE + PocketBudgetContract.IncomeTable.TABLE_NAME + START_TABLE
             + PocketBudgetContract.IncomeTable._ID + PRIMARY_KEY
-            + COMMA + PocketBudgetContract.IncomeTable.COLUMN_NAME_SOURCE + TEXT
-            + COMMA + PocketBudgetContract.IncomeTable.COLUMN_NAME_AMOUNT + INTEGER + " );";
-    private static final String SQL_CREATE_EXPENSE = TABLE + PocketBudgetContract.ExpenseTable.TABLE_NAME + " ("
+            + COMMA + PocketBudgetContract.IncomeTable.COLUMN_NAME_SOURCE + TEXT_NN
+            + COMMA + PocketBudgetContract.IncomeTable.COLUMN_NAME_AMOUNT + INTEGER + END_TABLE;
+    private static final String SQL_CREATE_EXPENSE = TABLE + PocketBudgetContract.ExpenseTable.TABLE_NAME + START_TABLE
             + PocketBudgetContract.ExpenseTable._ID + PRIMARY_KEY
-            + COMMA + PocketBudgetContract.ExpenseTable.COLUMN_NAME_SOURCE + TEXT
-            + COMMA + PocketBudgetContract.ExpenseTable.COLUMN_NAME_AMOUNT + INTEGER + " );";
+            + COMMA + PocketBudgetContract.ExpenseTable.COLUMN_NAME_SOURCE + TEXT_NN
+            + COMMA + PocketBudgetContract.ExpenseTable.COLUMN_NAME_AMOUNT + INTEGER + END_TABLE;
     /**
      * The following are the delete statements for each table
      */
