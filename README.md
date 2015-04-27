@@ -13,17 +13,5 @@ Still in development
 
 
 ###Notes on the Application###
-All global variables are declared with a g in front of the variable name. Example = gGlobalVariable
-All local variables are declared with a m in front of the variable name. Example = mLocalVariable
-All final variables and enums are declared in all caps. Example FINAL_VARIABLE; ENUM_NAME | Exception = local final variables
+Currently working on SQLite database interactions. 
 
-### How do I get set up? ###
-Currently only requires default Android libraries.
-
-### Contribution guidelines ###
-
-No other contributions authorized at this time. 
-
-### Who do I talk to? ###
-
-You can contact Michael Wheeler, the repo owner.
